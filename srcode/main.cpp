@@ -18,12 +18,15 @@ int main() {
     std::string episodePath, episodeTitle;
     while (true) {
         std::cout << "Enter episode file path (or 'exit' to finish): ";
-        std::cin >> episodePath >> episodeTitle;
+        std::cin >> episodePath;
+        
+        std::cout << "Enter episode title (or 'exit' to finish): ";
+        std::cin >> episodeTitle;
 
-        if (episodePath == "exit") break;
+        if (episodePath == "exit" || episodeTitle == "exit") break;
 
         processor.addEpisode(episodePath, episodeTitle);
-        processor.processEpisode(0); // Process immediately
+        processor.processEpisode();
     }
 
     return 0;

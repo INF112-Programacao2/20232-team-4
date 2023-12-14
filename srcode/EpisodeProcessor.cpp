@@ -17,11 +17,11 @@ void EpisodeProcessor::addEpisode(const std::filesystem::path& i_episodePath, st
     }
 }
 
-void EpisodeProcessor::processEpisode(size_t i_episodeIndex) {
-    reader.openEpisode(episodeQueue[i_episodeIndex]); // Open the video file using EpisodeReader
+void EpisodeProcessor::processEpisode() {
+    reader.openEpisode(episodeQueue[episodeIndex]); // Open the video file using EpisodeReader
     EpisodeMetadata metadata = reader.getMetadata();
-    metadata.title = episodeTitles[i_episodeIndex];
-    mngr.addMetadata((i_episodeIndex + 1), metadata); // Key is episode number (index + 1)
+    metadata.title = episodeTitles[episodeIndex];
+    mngr.addMetadata((episodeIndex + 1), metadata); // Key is episode number (index + 1)
 
     int frameInterval = static_cast<int>(std::ceil(metadata.fps / targetFPS));
     int frameIndex = 0;

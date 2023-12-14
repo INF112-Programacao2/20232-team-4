@@ -29,7 +29,7 @@ public:
 	// Constructor
     EpisodeProcessor(std::filesystem::path i_framesDir, double i_targetFPS);
     
-    void processEpisode(size_t i_episodeIndex);
+    void processEpisode();
     void addEpisode(const std::filesystem::path& i_episodeQueue, std::string i_episodeTitle);
 };
 
